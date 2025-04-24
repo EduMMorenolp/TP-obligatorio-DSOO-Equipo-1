@@ -1,0 +1,34 @@
+# Ignorar la carpeta de compilación y los archivos generados
+bin/
+obj/
+
+# Archivos de configuración de Visual Studio
+.vs/
+.vscode/
+.idea/
+
+# Archivos del sistema operativo
+Thumbs.db
+Desktop.ini
+
+# Archivos de configuración de JetBrains Rider (si usas Rider)
+.idea/
+
+# Archivos de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de paquete NuGet
+packages/
+.nuget/
+
+# Archivos de instalación de dotnet (si es que no están en el proyecto)
+global.json
+
+# Archivos de log de diagnóstico
+*.log
+
+# Otros archivos generados por el entorno de desarrollo
+.DS_Store
