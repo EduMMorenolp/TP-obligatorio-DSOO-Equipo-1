@@ -1,6 +1,6 @@
 # Ignorar la carpeta de compilación y los archivos generados
-bin/
-obj/
+Biblioteca/bin/
+Biblioteca/obj/
 
 # Archivos de configuración de Visual Studio
 .vs/

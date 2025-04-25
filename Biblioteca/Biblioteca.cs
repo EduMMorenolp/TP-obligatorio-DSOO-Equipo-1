@@ -5,16 +5,15 @@ namespace Colecciones
 {
     public class Biblioteca
     {
-        // Lista privada que almacena los libros
         private List<Libro> libros;
+        private List<Lector> lectoresRegistrados;
 
-        // Constructor: inicializa la lista
         public Biblioteca()
         {
+            this.lectoresRegistrados = new List<Lector>();
             this.libros = new List<Libro>();
         }
 
-        // Método para buscar un libro por su título
         private Libro buscarLibro(string titulo)
         {
             Libro libroBuscado = null;
@@ -31,7 +30,6 @@ namespace Colecciones
             return libroBuscado;
         }
 
-        // Método para agregar un libro
         public bool agregarLibro(string titulo, string autor, string editorial)
         {
             if (buscarLibro(titulo) != null)
@@ -44,7 +42,6 @@ namespace Colecciones
             return true;
         }
 
-        // Método para listar todos los libros
         public void listarLibros()
         {
             if (libros.Count == 0)
@@ -60,7 +57,6 @@ namespace Colecciones
             }
         }
 
-        // Método para eliminar un libro por título
         public bool eliminarLibro(string titulo)
         {
             Libro libro = buscarLibro(titulo);
@@ -71,6 +67,60 @@ namespace Colecciones
             }
             return false;
         }
+
+        private Lector buscarLector(string dni)
+        {
+            Lector lectorBuscado = null;
+            int i = 0;
+            while (i < lectoresRegistrados.Count && !lectoresRegistrados[i].getDni().Equals(dni))
+            {
+                i++;
+            }
+
+            if (i != lectoresRegistrados.Count)
+            {
+                lectorBuscado = lectoresRegistrados[i];
+            }
+            return lectorBuscado;
+        }
+
+        public bool altaLector(string nombre, string dni)
+        {
+            if (buscarLector(dni) != null)
+            {
+                return false;
+            }
+
+            Lector nuevoLector = new Lector(nombre, dni);
+            lectoresRegistrados.Add(nuevoLector);
+            return true;
+        }
+
+        public string prestarLibro(string titulo, string dni)
+        {
+            Lector lector = buscarLector(dni);
+            if (lector == null)
+            {
+                return "LECTOR INEXISTENTE";
+            }
+
+            if (lector.getLibrosPrestados() > 2)
+            {
+                return "TOPE DE PRESTAMO ALCANZADO";
+            }
+
+            Libro libro = buscarLibro(titulo);
+            if (libro == null)
+            {
+                return "LIBRO INEXISTENTE";
+            }
+
+            libros.Remove(libro);
+            lector.setLibrosPrestados(libro);
+
+            return "PRESTAMO EXITOSO";
+        }
+
     }
 
 }

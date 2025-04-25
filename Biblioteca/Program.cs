@@ -9,14 +9,30 @@ class Program
         Biblioteca biblioteca = new Biblioteca();
 
         cargarLibros(10);
-        cargarLibros(2);
         biblioteca.listarLibros();
 
-        biblioteca.eliminarLibro("Libro5");
-        Console.WriteLine("\nDespués de eliminar 'Libro5':\n");
+        biblioteca.altaLector("Pepe", "12345678");
+
+        Console.WriteLine("TEST Lector inexistente:");
+        Console.WriteLine(biblioteca.prestarLibro("Libro3", "12345679"));
+
+        Console.WriteLine("TEST Libro inexistente:");
+        Console.WriteLine(biblioteca.prestarLibro("Libr3", "12345678"));
+
+        Console.WriteLine("TEST Exitoso:");
+        Console.WriteLine(biblioteca.prestarLibro("Libro3", "12345678");
+
+
+        biblioteca.prestarLibro("Libro4", "12345678");
+        biblioteca.prestarLibro("Libro5", "12345678");
+
+        Console.WriteLine("TEST Tope:");
+        Console.WriteLine(biblioteca.prestarLibro("Libro2", "12345678"));
+
         biblioteca.listarLibros();
 
-        // Función local para cargar libros
+        Console.ReadKey();
+
         void cargarLibros(int cantidad)
         {
             bool pude;
