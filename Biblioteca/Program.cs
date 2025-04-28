@@ -20,7 +20,7 @@ class Program
         Console.WriteLine(biblioteca.prestarLibro("Libr3", "12345678"));
 
         Console.WriteLine("TEST Exitoso:");
-        Console.WriteLine(biblioteca.prestarLibro("Libro3", "12345678");
+        Console.WriteLine(biblioteca.prestarLibro("Libro3", "12345678"));
 
 
         biblioteca.prestarLibro("Libro4", "12345678");
